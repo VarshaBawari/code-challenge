@@ -3,9 +3,7 @@ package projects.varsha.com.babblegame.util;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-
 import com.google.gson.Gson;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +16,6 @@ import projects.varsha.com.babblegame.model.SpaWord;
 public class JsonParserTask<T> extends AsyncTask<Void, Void, List<T>> {
 
     private static final String TAG = JsonParserTask.class.getSimpleName();
-
     private final Context mContext;
     private int mJsonResource;
     private OnDataListener mDataListener;
@@ -48,17 +45,12 @@ public class JsonParserTask<T> extends AsyncTask<Void, Void, List<T>> {
 
     @Override
     protected List<T> doInBackground(Void... voids) {
-
         if (mJsonResource <= 0) {
             throw new JsonCreatorTaskException("Word json resource not set");
         }
-
         if (isCancelled()) {
             return null;
         }
-        /**
-         * can be use switch case if another conversion available
-         */
         return (List<T>) parseSpanishWordsJsonStringToObjects();
     }
 
@@ -71,12 +63,9 @@ public class JsonParserTask<T> extends AsyncTask<Void, Void, List<T>> {
 
     private List<SpaWord> parseSpanishWordsJsonStringToObjects() {
         List<SpaWord> words = new ArrayList<>();
-
-        Log.d(TAG, "Starting data boot words process.");
         // Load data from word raw resource words.json inside raw directory
         try {
             String bootWordsJson = JSONHandler.parseResource(mContext, mJsonResource);
-
             words = stringToArray(bootWordsJson, SpaWord[].class);
 
             int position = 0;
@@ -98,7 +87,6 @@ public class JsonParserTask<T> extends AsyncTask<Void, Void, List<T>> {
                 }
                 position++;
             }
-
         } catch (IOException ex) {
             Log.e(TAG, "*** ERROR DURING BOOT WORD! Problem in boot words data?", ex);
         } catch (Exception e) {

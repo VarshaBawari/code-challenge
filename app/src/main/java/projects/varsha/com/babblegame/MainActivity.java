@@ -15,9 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initDescriptionComponents() {
-
         this.findViewById(R.id.welcome_container).setVisibility(View.VISIBLE);
-
         this.findViewById(R.id.button_start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

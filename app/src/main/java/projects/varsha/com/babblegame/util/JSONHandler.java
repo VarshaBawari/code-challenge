@@ -1,7 +1,6 @@
 package projects.varsha.com.babblegame.util;
 
 import android.content.Context;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,13 +11,10 @@ import java.io.Writer;
 
 
 public abstract class JSONHandler {
-
     protected static Context mContext;
-
     public JSONHandler(Context context) {
         mContext = context;
     }
-
     public static String parseResource(Context context, int resource) throws IOException {
         InputStream is = context.getResources().openRawResource(resource);
         Writer writer = new StringWriter();
