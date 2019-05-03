@@ -181,7 +181,7 @@ public class GameActivity extends AppCompatActivity {
         if (userOptedAnswer == mWordItems.get(mCurrentPosition).answerOfThisQues) {
             correctWordCount = correctWordCount + 1;
             correctWords.setText(correctWordCount + "");
-            totalScore = totalScore + scoreCounter * 50;
+            totalScore = totalScore + (5-scoreCounter) * 50;
             score.setText(totalScore + "");
         }
 
